@@ -26,7 +26,9 @@ elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
     set(AVX2 -march=haswell)
 endif()
 
-
+if (BUILD_SHARED_LIBS)
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
 
 set(CFLAGS ${CFLAGS} -w -Wall ${DEBUG} ${OPT} -Iext)
 
